@@ -3,4 +3,8 @@ project(GflagsExample)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(GflagsExample gflags_test.cc gflags_test1.cpp)
+add_executable(gflags_test gflags_test.cc)
+add_executable(gflags_test1 gflags_test1.cpp)
+
+target_link_libraries(gflags_test libgflags.so)
+target_link_libraries(gflags_test1 libgflags.so)
