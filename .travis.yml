@@ -26,7 +26,7 @@ script:
   - export PATH="$PATH:$MY_INSTALL_DIR/bin"
   - cmake --version
   - sudo apt install -y build-essential autoconf libtool pkg-config
-  - sudo apt-get libgflags-dev -y
+  - sudo apt-get install libgflags-dev -y
   - wget --no-check-certificate https://cmake.org/files/v3.16/cmake-3.16.9-Linux-x86_64.tar.gz
   - tar -xvf cmake-3.16.9-Linux-x86_64.tar.gz > /dev/null
   - mv cmake-3.16.9-Linux-x86_64 cmake-install
