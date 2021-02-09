@@ -39,3 +39,4 @@ script:
   - make
   - ls
   - ./gflags_test -host 10.123.78.90 -port 8008
+  - ./gflags_test1
