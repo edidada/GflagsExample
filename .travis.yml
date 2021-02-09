@@ -1,0 +1,41 @@
+language: cpp
+sudo: required
+dist: xenial
+compiler:
+  - gcc
+#  - clang
+services:
+  - mysql
+os:
+  - linux
+install:
+
+before_script:
+  #  - cd ..
+  - ls
+addons:
+  apt:
+    update: true
+
+env:
+  - BUILD_TYPE=debug
+  - BUILD_TYPE=release
+script:
+  - export MY_INSTALL_DIR=$HOME/.local
+  - mkdir -p $MY_INSTALL_DIR
+  - export PATH="$PATH:$MY_INSTALL_DIR/bin"
+  - cmake --version
+  - sudo apt install -y build-essential autoconf libtool pkg-config
+  - sudo apt-get install libgflags-dev -y
+  - wget --no-check-certificate https://cmake.org/files/v3.16/cmake-3.16.9-Linux-x86_64.tar.gz
+  - tar -xvf cmake-3.16.9-Linux-x86_64.tar.gz > /dev/null
+  - mv cmake-3.16.9-Linux-x86_64 cmake-install
+  - pwd_path=$(pwd)
+  - PATH=${pwd_path}/cmake-install:${pwd_path}/cmake-install/bin:$PATH
+  - cmake --version
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make
+  - ls
+  - ./gflags_test -host 10.123.78.90 -port 8008
