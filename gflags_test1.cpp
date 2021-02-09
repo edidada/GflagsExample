@@ -4,6 +4,8 @@
 
 #include <gflags/gflags.h>
 
+using namespace std;
+
 // 定义对 FLAGS_port 的检查函数
 static bool ValidatePort(const char* name, int32_t value) {
     if (value > 0 && value < 32768) {
@@ -27,12 +29,12 @@ static const bool port_dummy = gflags::RegisterFlagValidator(&FLAGS_port, &Valid
 int main(int argc, char** argv) {
     // 解析命令行参数，一般都放在 main 函数中开始位置
     gflags::ParseCommandLineFlags(&argc, &argv, true);
-    std::cout << "The server host is: " << FLAGS_host
-              << ", the server port is: " << FLAGS_port << std::endl;
+    cout << "The server host is: " << FLAGS_host
+              << ", the server port is: " << FLAGS_port << endl;
 
     // 使用 SetCommandLineOption 函数对参数进行设置才会调用检查函数
     gflags::SetCommandLineOption("port", "-2");
-    std::cout << "The server host is: " << FLAGS_host
-              << ", the server port is: " << FLAGS_port << std::endl;
+    cout << "The server host is: " << FLAGS_host
+              << ", the server port is: " << FLAGS_port << endl;
     return 0;
 }

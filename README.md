@@ -42,3 +42,5 @@ Invalid value for --port: -2
 The server host is: 10.123.14.11, the server port is: 23333
 
 ```
+
+`--flagfile server.flags`
