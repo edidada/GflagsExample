@@ -1,5 +1,7 @@
 # gflags例子
 
+## xmake
+xmake -v -y
 [gflags例子 CSDN](https://blog.csdn.net/jcjc918/article/details/50876613)
 
 ### 使用命令行参数
