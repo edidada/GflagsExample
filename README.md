@@ -1,4 +1,6 @@
 # gflags例子
+apt search libgflags-dev
+libgflags-dev/focal 2.2.2-1build1 amd64
 
 ## xmake
 xmake -v -y

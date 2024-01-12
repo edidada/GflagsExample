@@ -10,9 +10,17 @@ add_requires("tbox >1.6.1", {optional = true, debug = true})
 --     set_kind("binary")
 --     add_files("src/*.c")
 
-target("brpc_http_c++")
+target("gflags_test")
     set_kind("binary")
     add_files("gflags_test.cc")
+    add_packages("openssl","gflags")
+target("gflags_test1")
+    set_kind("binary")
+    add_files("gflags_test1.cpp")
+    add_packages("openssl","gflags")
+target("gflags_brpc")
+    set_kind("binary")
+    add_files("gflags_brpc.cc")
     add_packages("openssl","gflags")
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
