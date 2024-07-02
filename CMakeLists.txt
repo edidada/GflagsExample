@@ -3,8 +3,8 @@ project(GflagsExample)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(gflags_test gflags_test.cc)
-add_executable(gflags_test1 gflags_test1.cpp)
+add_executable(gflags_test src/gflags_test.cc)
+add_executable(gflags_test1 src/gflags_test1.cpp)
 
 if(UNIX AND NOT APPLE)
     # Linux
@@ -33,7 +33,10 @@ elseif(APPLE)
     message(STATUS "This is macOS")
 elseif(WIN32)
     # Windows
-    message(STATUS "This is Windows")
+    set(GFLAGS_USE_TARGET_NAMESPACE ON)
+    find_package(gflags CONFIG REQUIRED)
+    target_link_libraries(gflags_test PRIVATE gflags::gflags)
+    target_link_libraries(gflags_test1 PRIVATE gflags::gflags)
 else()
     message(FATAL_ERROR "Unsupported operating system")
 endif()
