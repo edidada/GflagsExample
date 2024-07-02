@@ -1,9 +1,14 @@
 # gflags例子
+
+```shell
 apt search libgflags-dev
 libgflags-dev/focal 2.2.2-1build1 amd64
+```
 
 ## xmake
-xmake -v -y
+
+`xmake -v -y`
+
 [gflags例子 CSDN](https://blog.csdn.net/jcjc918/article/details/50876613)
 
 ### 使用命令行参数
